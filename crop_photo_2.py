@@ -54,7 +54,7 @@ for y in range(0, imgheight, M):
 
 # Save full image into file directory
 cv2.imshow("Patched Image", image)
-cv2.imwrite("patched.jpg", image)
+cv2.imwrite("media/patched.jpg", image)
 
 cv2.waitKey()
 cv2.destroyAllWindows()
