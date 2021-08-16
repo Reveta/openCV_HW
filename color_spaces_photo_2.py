@@ -19,7 +19,7 @@ def draw_border(image):
     return image
 
 
-bright = cv2.imread('media/color_test_1.jpg')
+bright = cv2.imread('media/laptops/laptop_1.jpg')
 dark = cv2.imread('media/color_test_2.jpg')
 
 down_width = 800
@@ -39,9 +39,9 @@ brightHSV = cv2.cvtColor(bright, cv2.COLOR_BGR2HSV)
 
 
 darkHSV = cv2.cvtColor(dark, cv2.COLOR_BGR2HSV)
-rgb = [96,8,32]
+# rgb = [96,8,32]
+rgb = [234, 78, 60]
 
-# bgr = [40, 158, 16]
 bgr = cv2.cvtColor( np.uint8([[rgb]] ), cv2.COLOR_RGB2BGR)[0][0]
 
 thresh = 40
@@ -78,14 +78,18 @@ minLAB = np.array([lab[0] - thresh, lab[1] - thresh, lab[2] - thresh])
 maxLAB = np.array([lab[0] + thresh, lab[1] + thresh, lab[2] + thresh])
 maskLAB = cv2.inRange(brightLAB, minLAB, maxLAB)
 
-resultLAB = cv2.bitwise_and(brightLAB, brightLAB, mask = maskLAB)
+resultLAB = cv2.bitwise_and(bright, bright, mask = maskLAB)
+resultLAB = cv2.bitwise_and(resultLAB, resultLAB, mask = maskYCB)
+resultLAB = cv2.bitwise_and(resultLAB, resultLAB, mask = maskHSV)
+resultLAB = cv2.bitwise_and(resultLAB, resultLAB, mask = maskBGR)
+
 cv2.imshow("Original", draw_border(bright))
 
-cv2.imshow("Result BGR", draw_border(resultBGR))
+# cv2.imshow("Result BGR", draw_border(resultBGR))
 cv2.imshow("Result HSV", draw_border(resultHSV))
-cv2.imshow("Result YCB", draw_border(resultYCB))
+# cv2.imshow("Result YCB", draw_border(resultYCB))
 
-cv2.imshow("Output LAB", resultLAB)
+# cv2.imshow("Output LAB", resultLAB)
 cv2.waitKey()
 
 cv2.destroyAllWindows()
