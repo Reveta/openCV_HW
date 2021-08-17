@@ -86,10 +86,10 @@ resultLAB = cv2.bitwise_and(resultLAB, resultLAB, mask = maskBGR)
 cv2.imshow("Original", draw_border(bright))
 
 # cv2.imshow("Result BGR", draw_border(resultBGR))
-cv2.imshow("Result HSV", draw_border(resultHSV))
+# cv2.imshow("Result HSV", draw_border(resultHSV))
 # cv2.imshow("Result YCB", draw_border(resultYCB))
 
-# cv2.imshow("Output LAB", resultLAB)
+cv2.imshow("Output LAB", resultLAB)
 cv2.waitKey()
 
 cv2.destroyAllWindows()
