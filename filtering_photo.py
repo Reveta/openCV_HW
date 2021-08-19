@@ -25,7 +25,7 @@ cv2.imshow('Identity2', identity2)
 # cv2.imshow('Identity3', identity3)
 
 cv2.waitKey()
-cv2.imwrite('identity.jpg', identity1)
+cv2.imwrite('media/identity.jpg', identity1)
 cv2.destroyAllWindows()
 
 # Apply blurring kernel
@@ -36,5 +36,5 @@ cv2.imshow('Original', image)
 cv2.imshow('Kernel Blur', img)
 
 cv2.waitKey()
-cv2.imwrite('blur_kernel.jpg', img)
+cv2.imwrite('media/blur_kernel.jpg', img)
 cv2.destroyAllWindows()

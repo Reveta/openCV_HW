@@ -20,4 +20,4 @@ plt.axis("off")
 plt.show()
 
 # The function cv2.imwrite() is used to write an image.
-cv2.imwrite('../media/grayscale.jpg', img_grayscale)
+cv2.imwrite('media/grayscale.jpg', img_grayscale)
